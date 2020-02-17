@@ -1,7 +1,7 @@
 <?php
     include('assets/php/session.php');
     if($user_session == "Cook") {
-        $path_goBack = "goHome()";
+        $path_goBack = "window.location.href = 'assets/php/logout.php'";
         $btn_text = "Order Ready";
         $btn_onClick = "innerHTML = '<b>Confirmed!</b>'";
     }
@@ -26,6 +26,6 @@
     <button onclick="window.location.href = 'info_order.php'">Info Order</button>
     <button onclick="<?php echo $btn_onClick ?>"><?php echo $btn_text ?></button>
     
-    <script src="assets/js/script.js"></script>
+    
 </body>
 </html>

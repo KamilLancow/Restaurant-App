@@ -12,19 +12,27 @@
 </head>
 <body>
     <h3>This is List Tables: <?php echo $user_session ?></h3>
+    <ul style="list-style-type:none">
+        <?php
+        for ($x = 1; $x <= 30; $x++) {
+            echo "<li style='color: black;'>Table <span>". $x. "</span></li>";
+        }
+        ?>
+    </ul>
 
-    <button onclick="goHome()">Go Back</button>
-    <button onclick="window.location.href = 'create_order.php'">Create Order</button>
-    <button onclick="toggle_deleteOrder()">Delete Order</button>
+    <button onclick="window.location.href = 'assets/php/logout.php'">Go Back</button>
+    <button id="create_order">Create Order</button>
+    <button id="delete_order">Delete Order</button>
     <button onclick="window.location.href = 'list_order.php'">List Orders</button>
     
-    <div id="delete_order_ui" style="height:100%;width:100%;" hidden>
-        <h3>This is Delete Order: <?php echo $user_session ?></h3>
-        <button onclick="toggle_deleteOrder()">Cancel</button>
-        <button onclick="deleteOrder()">Confirm</button>
+    <div id="delete_order_ui" hidden>
+        <h3>This is Delete Order:</h3>
+        <p></p>
+        <button id="del_delete">Delete Order</button>
+        <button id="del_cancel">Cancel</button>
     </div>
 
-
-    <script src="assets/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="assets/js/list_table.js"></script>
 </body>
 </html>
