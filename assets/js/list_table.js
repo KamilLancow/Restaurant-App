@@ -4,22 +4,22 @@ var tables = new Array();
 
 $("li").click(function(){
     var num_table = $(this).children("span").text();
-    if ($(this).css("color") == "rgb(0, 0, 0)") {// add table to array
+    if ($(this).css("color") == "rgb(0, 0, 0)" && tables.length == 0) {// add table to array
         tables.push(num_table);
         color = "blue";
-    } else {// remove table to array
+        $(this).css("color", color);// TO REMOVE & do css
+    } else if ($(this).css("color") != "rgb(0, 0, 0)" && tables.length == 1) {// remove table to array
         tables.splice(tables.indexOf(num_table), 1);
         color = "black";
+        $(this).css("color", color);// TO REMOVE & do css
     }
-    $(this).css("color", color);// TO REMOVE & do css
-    }
-);
+});
 
 $("#create_order").click(function () {
-    if(tables.length > 0){// if user selects at least one table then he can create order
-        tables.sort(function(a, b){return a-b});
-        var json_tables = JSON.stringify(tables);
-        document.cookie = "selected_tables=" + json_tables;
+    if(tables.length == 1){// if user selects just one table then he can create order
+        //tables.sort(function(a, b){return a-b});
+        //document.cookie = "selected_tables=" + JSON.stringify(tables);
+        document.cookie = "selected_table=" + tables[0];
         window.location.href = 'create_order.php';
     } else {// else user cannot create an order
         alert("Select a table!")
