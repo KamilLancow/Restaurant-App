@@ -1,5 +1,3 @@
-(function(){
-
 var tables = new Array();
 
 $("li").click(function(){
@@ -28,28 +26,9 @@ $("#create_order").click(function () {
 
 $("#delete_order").click(function () {
     if (tables.length == 1) {// if user selects one table display 'delete_order' UI
-        $("#delete_order_ui > p").html("Do you really want to delete the order for Table " +  tables[0] + " ?");
+        $("#delete_order_ui div > p").html("Do you really want to delete the order for Table " +  tables[0] + " ?");
         $("#delete_order_ui").toggle();
-    } else if(tables.length > 1){// else user cannot delete order/s
-        alert("Select just one table!")
     } else {
         alert("Select one table!")
     }
 });
-
-$("#del_delete").click(function () {
-    alert("order deleted.");// TO DO: delete order from db
-    leave_deleteOrderUI();
-});
-
-$("#del_cancel").click(function () { 
-    $("#delete_order_ui").toggle();
-});
-
-function leave_deleteOrderUI() {
-    $("#delete_order_ui").toggle();
-    tables.pop();
-    $('li[style="color: blue;"]').css("color", "black");
-}
-
-})();

@@ -26,13 +26,11 @@
     <button onclick="window.location.href = 'list_order.php'">List Orders</button>
     
     <div id="delete_order_ui" hidden>
-        <h3>This is Delete Order:</h3>
-        <p></p>
-        <button id="del_delete">Delete Order</button>
-        <button id="del_cancel">Cancel</button>
+        <?php include 'delete_order.php';?>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="assets/js/list_table.js"></script>
+    <script src="assets/js/delete_order.js"></script>
 </body>
 </html>
