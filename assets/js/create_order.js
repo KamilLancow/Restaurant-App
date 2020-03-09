@@ -64,17 +64,20 @@
     }
     
     $("#order_btn").click(function () { 
-        alert("clicked");
-        var info_order = new Array();
-        $("#list_selected_dishes > li").each(function (index, element) {
-            info_order[index] = new Array(2);
-            info_order[index][0] = $(this).find(".id_dish").text();
-            info_order[index][1] = $(this).find(".quantity span").text();
-        });
-
-        $("#order_div").load('./assets/php/createOrder.php',{table: selected_table, array: JSON.stringify(info_order)}, function() {
-            window.location.href = 'list_order.php';
-        });
+        if ($("#list_selected_dishes").find("> p")) {
+            alert("Select at least 1 dish.");
+        } else {
+            var info_order = new Array();
+            $("#list_selected_dishes > li").each(function (index, element) {
+                info_order[index] = new Array(2);
+                info_order[index][0] = $(this).find(".id_dish").text();
+                info_order[index][1] = $(this).find(".quantity span").text();
+            });
+    
+            $("#order_div").load('./assets/php/createOrder.php',{table: selected_table, array: JSON.stringify(info_order)}, function() {
+                window.location.href = 'list_order.php';
+            });
+        }
     });
 
 
