@@ -64,7 +64,7 @@
     }
     
     $("#order_btn").click(function () { 
-        if ($("#list_selected_dishes").find("> p")) {
+        if ($("#list_selected_dishes > p").text() == "Select your dishes") {
             alert("Select at least 1 dish.");
         } else {
             var info_order = new Array();
